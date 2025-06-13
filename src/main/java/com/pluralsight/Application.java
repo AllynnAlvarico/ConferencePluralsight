@@ -9,10 +9,11 @@ public class Application {
     public static void main(String[] args) {
         System.out.println("Hello Spring Framework!");
 
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class)
-
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
         //SpeakerService service = new SpeakerServiceImplementation();
+
+        SpeakerService service = applicationContext.getBean("speakerService", SpeakerService.class);
 
         System.out.println(service.findAll().getFirst().getFirstName());
 
